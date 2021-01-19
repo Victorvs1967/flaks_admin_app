@@ -20,7 +20,6 @@ class LoginForm(form.Form):
     def get_user(self):
         return db.session.query(User).filter_by(username=self.username.data).first()
 
-
 class RegistrationForm(form.Form):
     username = fields.StringField(validators=[validators.required()])
     password = fields.PasswordField(validators=[validators.required()])

@@ -1,0 +1,19 @@
+<head>
+{{ bootstrap.load_css() }}
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            {% if current_user.is_authenticated %}
+            <h1 class="display-4">Hello, {{current_user}}!</h1>
+            {% else %}
+            <h1 class="display-4">Hello, bloger!</h1>
+            {% endif %}
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <a class="btn btn-primary btn-lg" href="{{ url_for('admin.index') }}" role="button">Go to Admin</a>
+        </div>
+    </div>
+{{ bootstrap.load_js() }}
+</body>

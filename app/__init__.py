@@ -5,13 +5,20 @@ from flask import Flask
 
 from config import Config, LOGGING
 
-dictConfig(LOGGING)
 
-app = Flask(__name__)
-app.logger = logging.getLogger('application')
-app.logger.info('Application started')
+def create_app():
 
+    dictConfig(LOGGING)
+
+    app = Flask(__name__)
+    app.logger = logging.getLogger('application')
+    app.logger.info('Application started')
+
+    app.config.from_object(Config())
+
+    return app
+
+app = create_app()
 bootstrap = Bootstrap(app)
-app.config.from_object(Config())
 
 from app import admin, views, models

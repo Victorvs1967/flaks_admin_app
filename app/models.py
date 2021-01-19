@@ -1,14 +1,15 @@
 import logging
 from datetime import datetime
 import psycopg2
-from flask_sqlalchemy import SQLAlchemy
 from flask_security import UserMixin, RoleMixin, Security, SQLAlchemyUserDatastore, login_required, current_user
 import flask_login as login
+from flask_sqlalchemy import SQLAlchemy
 
 from app import app
 
 
 logger = logging.getLogger('application')
+
 db = SQLAlchemy(app)
 
 roles_users = db.Table('roles_users',

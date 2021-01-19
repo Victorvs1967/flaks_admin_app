@@ -1,5 +1,5 @@
 import logging
-from flask import Flask, render_template, flash, request, redirect, url_for
+from flask import Flask, Blueprint, render_template, flash, request, redirect, url_for
 import flask_login as login
 
 from app import app
